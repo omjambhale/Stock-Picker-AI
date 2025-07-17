@@ -1,13 +1,15 @@
 #!/bin/bash
 
-# Set Python path to current directory (same as gradio_app.py does)
+echo "🚀 Starting Stock Picker AI..."
+
+# Set Python path to current directory
 export PYTHONPATH=.
 
 # Activate virtual environment
 source .venv/bin/activate
 
-# Install gradio if not already installed
+# Install only gradio (crewai is already installed)
 pip install gradio
 
-# Run the Gradio app (which works exactly like main.py)
-python gradio_app.py
+# Run the simple test script
+python simple_run.py
