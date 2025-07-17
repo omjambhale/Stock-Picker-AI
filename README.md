@@ -1,4 +1,4 @@
-# 🚀 Stock Picker AI Agent
+# 🚀 Stock Picker AI
 
 An intelligent AI-powered stock analysis and recommendation system built with CrewAI. This agent analyzes market trends, company fundamentals, and financial data to provide informed stock investment recommendations.
 
@@ -9,25 +9,16 @@ An intelligent AI-powered stock analysis and recommendation system built with Cr
 - **💡 Investment Recommendations**: Data-driven stock recommendations with reasoning
 - **📈 Financial Analysis**: Deep dive into company fundamentals and financial metrics
 - **🔄 Memory System**: Maintains context and learns from previous analyses
-- **📋 Structured Output**: Generates detailed reports in markdown format
-
-## 🏗️ Architecture
-
-The project uses CrewAI's multi-agent system with specialized agents:
-
-- **Research Agent**: Gathers market data and company information
-- **Analysis Agent**: Performs financial analysis and trend evaluation
-- **Recommendation Agent**: Synthesizes findings into actionable recommendations
+- **🌐 Web Interface**: Beautiful Gradio web interface for easy interaction
 
 ## 🚀 Quick Start
 
 ### Prerequisites
 
-- Python 3.8+
+- Python 3.10+
 - OpenAI API key
-- Polygon API key (for financial data)
 
-### Installation
+### Installation & Usage
 
 1. **Clone the repository**
    ```bash
@@ -35,105 +26,76 @@ The project uses CrewAI's multi-agent system with specialized agents:
    cd stock-picker-ai
    ```
 
-2. **Install dependencies**
-   ```bash
-   pip install -r requirements.txt
-   # or using uv
-   uv sync
-   ```
-
-3. **Set up environment variables**
+2. **Set up environment variables**
    ```bash
    cp .env.example .env
-   # Edit .env with your API keys
+   # Edit .env with your OpenAI API key
    ```
 
-4. **Run the stock picker**
+3. **Run the web interface**
    ```bash
-   python -m stock_picker.main
+   chmod +x run_app.sh
+   ./run_app.sh
    ```
+
+4. **Or run manually**
+   ```bash
+   source .venv/bin/activate
+   export PYTHONPATH=.
+   pip install gradio
+   python gradio_app.py
+   ```
+
+5. **Open your browser**
+   Go to `http://localhost:7860`
+
+## 🎯 How It Works
+
+The Gradio interface works **exactly** like the original command-line stock_picker:
+
+1. **Input**: Enter a sector (e.g., "Technology", "Healthcare", "Finance")
+2. **Processing**: The same AI agents analyze the sector (no changes to the core logic)
+3. **Output**: Same detailed analysis report, just displayed in a nice web interface
+
+**The core functionality is identical** - we just added a UI layer on top!
 
 ## 📁 Project Structure
 
 ```
 stock-picker-ai/
-├── src/
-│   └── stock_picker/
-│       ├── __init__.py
-│       ├── main.py              # Main entry point
-│       ├── crew.py              # CrewAI configuration
-│       ├── config/
-│       │   ├── agents.yaml      # Agent definitions
-│       │   └── tasks.yaml       # Task definitions
-│       └── tools/
-│           ├── __init__.py
-│           └── push_tool.py     # Custom tools
-├── knowledge/
-│   └── user_preference.txt      # User preferences
-├── memory/                      # AI memory storage
-├── output/                      # Generated reports
-├── pyproject.toml              # Project configuration
-└── README.md                   # This file
+├── src/stock_picker/          # Original stock picker code (unchanged)
+│   ├── config/               # Agent and task configurations
+│   ├── tools/                # Custom tools and utilities
+│   ├── crew.py              # Main crew definition
+│   └── main.py              # Original command-line entry point
+├── gradio_app.py            # Web interface (works like main.py)
+├── run_app.sh               # Simple startup script
+├── requirements.txt         # Minimal dependencies
+└── README.md               # This file
 ```
 
 ## 🔧 Configuration
 
 ### Environment Variables
 
-Create a `.env` file with the following variables:
-
+Create a `.env` file with:
 ```env
 OPENAI_API_KEY=your_openai_api_key
-POLYGON_API_KEY=your_polygon_api_key
-SERPER_API_KEY=your_serper_api_key  # Optional
-```
-
-### Agent Configuration
-
-Modify `src/stock_picker/config/agents.yaml` to customize agent behavior:
-
-```yaml
-research_agent:
-  name: "Market Research Specialist"
-  role: "Gather comprehensive market and company data"
-  goal: "Provide accurate and up-to-date market information"
-
-analysis_agent:
-  name: "Financial Analyst"
-  role: "Analyze financial metrics and trends"
-  goal: "Evaluate investment potential and risks"
 ```
 
 ## 📊 Usage Examples
 
-### Basic Stock Analysis
+### Web Interface (Recommended)
+1. Run `./run_app.sh`
+2. Open browser to `http://localhost:7860`
+3. Enter sector (e.g., "Technology")
+4. Click "Analyze Stocks"
+5. View the same detailed analysis you'd get from command line
 
-```python
-from stock_picker.main import run_stock_analysis
-
-# Analyze a specific stock
-result = run_stock_analysis("AAPL")
-print(result)
+### Command Line (Original)
+```bash
+python -m src.stock_picker.main
 ```
-
-### Market Research
-
-```python
-from stock_picker.crew import StockPickerCrew
-
-crew = StockPickerCrew()
-result = crew.kickoff(inputs={"research_type": "market_trends"})
-```
-
-## 📈 Output Format
-
-The system generates structured reports including:
-
-- **Market Analysis**: Current market conditions and trends
-- **Company Overview**: Business model and competitive position
-- **Financial Metrics**: Key ratios and performance indicators
-- **Risk Assessment**: Potential risks and challenges
-- **Recommendation**: Buy/Hold/Sell recommendation with reasoning
 
 ## 🤝 Contributing
 
@@ -151,16 +113,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - [CrewAI](https://github.com/joaomdmoura/crewAI) for the multi-agent framework
 - [OpenAI](https://openai.com/) for the AI models
-- [Polygon](https://polygon.io/) for financial data
-
-## 📞 Support
-
-If you encounter any issues or have questions:
-
-1. Check the [Issues](https://github.com/your-username/stock-picker-ai/issues) page
-2. Create a new issue with detailed information
-3. Join our community discussions
+- [Gradio](https://gradio.app/) for the web interface
 
 ---
 
-**Disclaimer**: This tool is for educational and research purposes only. Investment decisions should be made after consulting with qualified financial advisors. Past performance does not guarantee future results.
+**Disclaimer**: This tool is for educational purposes only. Investment decisions should be made after consulting qualified financial advisors.

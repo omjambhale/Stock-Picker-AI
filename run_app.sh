@@ -1,13 +1,13 @@
 #!/bin/bash
 
-# Set Python path to include current directory
+# Set Python path to current directory (same as gradio_app.py does)
 export PYTHONPATH=.
 
 # Activate virtual environment
 source .venv/bin/activate
 
-# Install dependencies if needed
-pip install -r requirements.txt
+# Install gradio if not already installed
+pip install gradio
 
-# Run the Gradio app
+# Run the Gradio app (which works exactly like main.py)
 python gradio_app.py
