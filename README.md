@@ -1,17 +1,17 @@
-# 🚀 Stock Picker AI
+Stock Picker AI
 
 An intelligent AI-powered stock analysis and recommendation system built with CrewAI. This agent analyzes market trends, company fundamentals, and financial data to provide informed stock investment recommendations.
 
 ## ✨ Features
 
-- **🤖 AI-Powered Analysis**: Uses multiple AI agents to analyze different aspects of stock investment
-- **📊 Market Research**: Comprehensive market trend analysis and company research
-- **💡 Investment Recommendations**: Data-driven stock recommendations with reasoning
-- **📈 Financial Analysis**: Deep dive into company fundamentals and financial metrics
-- **🔄 Memory System**: Maintains context and learns from previous analyses
-- **🌐 Web Interface**: Beautiful Gradio web interface for easy interaction
+- ** AI-Powered Analysis**: Uses multiple AI agents to analyze different aspects of stock investment
+- ** Market Research**: Comprehensive market trend analysis and company research
+- ** Investment Recommendations**: Data-driven stock recommendations with reasoning
+- ** Financial Analysis**: Deep dive into company fundamentals and financial metrics
+- ** Memory System**: Maintains context and learns from previous analyses
+- ** Web Interface**: Beautiful Gradio web interface for easy interaction
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Prerequisites
 
@@ -96,25 +96,3 @@ OPENAI_API_KEY=your_openai_api_key
 ```bash
 python -m src.stock_picker.main
 ```
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## 📝 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🙏 Acknowledgments
-
-- [CrewAI](https://github.com/joaomdmoura/crewAI) for the multi-agent framework
-- [OpenAI](https://openai.com/) for the AI models
-- [Gradio](https://gradio.app/) for the web interface
-
----
-
-**Disclaimer**: This tool is for educational purposes only. Investment decisions should be made after consulting qualified financial advisors.
